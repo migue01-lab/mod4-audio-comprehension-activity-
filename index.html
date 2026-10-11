@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Reading Comprehension</title>
+    <title>Audio Comprehension Quiz</title>
     <style>
         :root {
             --bg: #f8fafc;
@@ -43,10 +43,10 @@
 
     <div id="quiz">
         <div class="question" id="q1">
-            <p>1. What time does the speaker wake up?</p>
+            <p>1. What time does the speaker get up in the morning?</p>
             <div class="options">
-                <button class="option-btn" onclick="checkAnswer(this, true)">A) At 6:00 AM</button>
-                <button class="option-btn" onclick="checkAnswer(this, false)">B) At 6:30 AM</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">A) At 5:00 AM</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">B) At 6:00 AM</button>
                 <button class="option-btn" onclick="checkAnswer(this, false)">C) At 7:00 AM</button>
             </div>
         </div>
@@ -70,29 +70,29 @@
         </div>
 
         <div class="question" id="q4">
-            <p>4. What does the speaker eat for breakfast?</p>
+            <p>4. What is the speaker's job during the day?</p>
             <div class="options">
-                <button class="option-btn" onclick="checkAnswer(this, true)">A) Cereal and fruit</button>
-                <button class="option-btn" onclick="checkAnswer(this, false)">B) Eggs and toast</button>
-                <button class="option-btn" onclick="checkAnswer(this, false)">C) Pancakes and juice</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">A) Doctor</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">B) Teacher</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) Engineer</button>
             </div>
         </div>
 
         <div class="question" id="q5">
-            <p>5. How does the speaker get to work?</p>
+            <p>5. What does the speaker do at lunch?</p>
             <div class="options">
-                <button class="option-btn" onclick="checkAnswer(this, false)">A) By car</button>
-                <button class="option-btn" onclick="checkAnswer(this, true)">B) By bus</button>
-                <button class="option-btn" onclick="checkAnswer(this, false)">C) By train</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">A) Eats with friends</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">B) Eats alone at school</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) Goes home</button>
             </div>
         </div>
 
         <div class="question" id="q6">
-            <p>6. What time does the speaker finish work?</p>
+            <p>6. What does the speaker do on the weekend?</p>
             <div class="options">
-                <button class="option-btn" onclick="checkAnswer(this, false)">A) At 4:30 PM</button>
-                <button class="option-btn" onclick="checkAnswer(this, true)">B) At 5:00 PM</button>
-                <button class="option-btn" onclick="checkAnswer(this, false)">C) At 5:30 PM</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">A) Plays sports</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">B) Stays at home</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) Goes to the cinema</button>
             </div>
         </div>
     </div>
@@ -108,14 +108,13 @@
 
         if (isCorrect) {
             button.classList.add('correct');
-            parent.parentElement.querySelector('#result').textContent = "Correct!";
+            parent.parentElement.parentElement.querySelector('#result').textContent = "Correct!";
         } else {
             button.classList.add('wrong');
-            parent.parentElement.querySelector('#result').textContent = "Wrong!";
+            parent.parentElement.parentElement.querySelector('#result').textContent = "Wrong!";
         }
     }
 </script>
 
 </body>
-      </html>
-          
+</html>
