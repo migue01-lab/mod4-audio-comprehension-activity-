@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Reading Comprehension</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #4f4eeb;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --correct-bg: #dcfce7;
+            --correct-border: #16a34a;
+            --wrong-bg: #fee2e2;
+            --wrong-border: #dc2626;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); text-align: center; }
+        audio { width: 100%; margin-bottom: 20px; }
+        .question { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+        .question p { margin-bottom: 10px; font-weight: 500; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .option-btn { padding: 10px; border: 1px solid var(--border); border-radius: 4px; background: none; cursor: pointer; text-align: left; transition: background 0.2s; }
+        .option-btn:hover { background-color: #f1f5f9; }
+        .option-btn.correct { background-color: var(--correct-bg); border-color: var(--correct-border); }
+        .option-btn.wrong { background-color: var(--wrong-bg); border-color: var(--wrong-border); }
+        #result { text-align: center; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reading Comprehension</h1>
+    <audio controls>
+        <source src="A1-04-Verbs.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="quiz">
+        <div class="question" id="q1">
+            <p>1. What time does the speaker wake up?</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, true)">A) At 6:00 AM</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">B) At 6:30 AM</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) At 7:00 AM</button>
+            </div>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. What is the first thing the speaker does after waking up?</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, false)">A) Eats breakfast</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">B) Gets dressed</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">C) Takes a shower</button>
+            </div>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. Do they like mornings?</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, true)">A) Yes, they do.</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">B) No, they don't.</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) They don't mention it.</button>
+            </div>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. What does the speaker eat for breakfast?</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, true)">A) Cereal and fruit</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">B) Eggs and toast</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) Pancakes and juice</button>
+            </div>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. How does the speaker get to work?</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, false)">A) By car</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">B) By bus</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) By train</button>
+            </div>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. What time does the speaker finish work?</p>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(this, false)">A) At 4:30 PM</button>
+                <button class="option-btn" onclick="checkAnswer(this, true)">B) At 5:00 PM</button>
+                <button class="option-btn" onclick="checkAnswer(this, false)">C) At 5:30 PM</button>
+            </div>
+        </div>
+    </div>
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkAnswer(button, isCorrect) {
+        const parent = button.parentElement;
+        const buttons = parent.querySelectorAll('.option-btn');
+        
+        buttons.forEach(btn => btn.disabled = true);
+
+        if (isCorrect) {
+            button.classList.add('correct');
+            parent.parentElement.querySelector('#result').textContent = "Correct!";
+        } else {
+            button.classList.add('wrong');
+            parent.parentElement.querySelector('#result').textContent = "Wrong!";
+        }
+    }
+</script>
+
+</body>
+      </html>
+          
